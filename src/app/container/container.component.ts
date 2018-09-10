@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container.component.css']
 })
 export class ContainerComponent implements OnInit {
-
-  constructor() { }
+  public categorias: Array<{id: number, nombre: string}>;
+  constructor() {
+    this.categorias = [];
+  }
 
   ngOnInit() {
+    this.categorias.push({id: 1, nombre: 'Vinos'});
+    this.categorias.push({id: 1, nombre: 'Lacteos'});
   }
 
 }
