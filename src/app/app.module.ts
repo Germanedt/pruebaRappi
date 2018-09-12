@@ -6,7 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ContainerComponent } from './container/container.component';
 
-import { StoreService } from "./store.service";
+import { HttpModule } from '@angular/http';
+import { StoreService } from './services/store.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { StoreService } from "./store.service";
     ContainerComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [
     StoreService

@@ -1,6 +1,9 @@
 <main>
-    <section>
-        <span>Categoría 1</span>
+    <section *ngFor="let item of productslist">
+        <span>{{item.name}}</span>
         <hr>
+        <ul>
+            <li *ngFor="let product of productslist.products">{{product.name}}</li>
+        </ul>
     </section>
 </main>

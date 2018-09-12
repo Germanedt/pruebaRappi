@@ -1,19 +1,14 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
-  <li class="spaceTop"></li>
-  <li>
-    <a href="#!">
-      <i class="material-icons sidenav-icon">add_box</i>Categoría 1
-    </a>
-  </li>
-  <li>
-      <a href="#!">
-        <i class="material-icons sidenav-icon">add_box</i>Categoría 2
-      </a>
+    <li class="spaceTop"></li>
+    <li *ngFor="let item of serviceStore.categories">
+        <a href="#!">
+            <i class="material-icons sidenav-icon">add_box</i>{{item.name}}
+        </a>
     </li>
 </ul>
 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 <script>
 $(document).ready(function(){
-  $('.sidenav').sidenav();
+$('.sidenav').sidenav();
 });
 </script>
