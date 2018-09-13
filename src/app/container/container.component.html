@@ -1,9 +1,11 @@
 <main>
-    <section *ngFor="let item of productslist">
-        <span>{{item.name}}</span>
-        <hr>
-        <ul>
-            <li *ngFor="let product of productslist.products">{{product.name}}</li>
-        </ul>
-    </section>
+    <div class="filters">
+        <h3>{{titleList}}</h3>
+    </div>
+    <article class="product" *ngFor="let item of productslist">
+        <img src="assets/product.jpg" alt="{{item.name}}">
+        <span class="name-product">{{item.name}}</span>
+        <strong class="price-product">{{item.price}}</strong>
+        <small class="quantity-produt">{{item.quantity}}</small>
+    </article>
 </main>
