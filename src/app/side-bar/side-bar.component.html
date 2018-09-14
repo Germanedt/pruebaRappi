@@ -1,14 +1,23 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
     <li class="spaceTop"></li>
-    <li *ngFor="let item of serviceStore.categories">
-        <a href="#!">
-            <i class="material-icons sidenav-icon">add_box</i>{{item.name}}
+    <li *ngFor="let category of serviceStore.categories">
+        <a (click)="listByCategory(category.id);">
+            <i class="material-icons sidenav-icon">add_box</i>{{category.name}}
         </a>
+        <!-- Dropdown Structure -->
+        <ul *ngFor="let level of category.sublevels">
+            <li>
+                <a (click)="listByCategory(level.id);">
+                    <i class="material-icons">radio_button_unchecked</i>four
+                </a>
+            </li>
+        </ul>
     </li>
 </ul>
 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 <script>
-$(document).ready(function(){
-$('.sidenav').sidenav();
-});
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
 </script>

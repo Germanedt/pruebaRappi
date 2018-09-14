@@ -1,6 +1,7 @@
 .brand-logo{
     padding-left: 15px;
     font-family: Abel;
+    cursor: pointer;
 }
 header{
     padding-left: 300px;

@@ -61,7 +61,7 @@ main{
     display: none;
 }
 .product{
-    width: 23%;
+    width: 250px;
     height: 310px;
     overflow: hidden;
     box-shadow: 0.2px 0.2px 0.2px 0.05px #888888;

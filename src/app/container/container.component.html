@@ -1,29 +1,29 @@
 <main>
     <div class="filters">
-        <h3>{{titleList}}</h3>
+        <h3>{{serviceStore.titleList}}</h3>
         <ul>
-            <li id="dispoibilidad" class="item-filter {{ordertype}}" title="Ordenar por dispoibilidad" (click)="orderProducts('Disponibilidad');">
+            <li class="item-filter {{serviceStore.ordertype}}" title="Mostrar todos" (click)="orderProducts('Nombre');">
+                Nombre
+            </li>
+            <li id="dispoibilidad" class="item-filter {{serviceStore.ordertype}}" title="Ordenar por dispoibilidad" (click)="orderProducts('Disponibilidad');">
                 Disponibilidad
             </li>
-            <li class="item-filter {{ordertype}}" title="Ordenar por precio" (click)="orderProducts('Precio');">
+            <li class="item-filter {{serviceStore.ordertype}}" title="Ordenar por precio" (click)="orderProducts('Precio');">
                 Precio
             </li>
-            <li class="item-filter {{ordertype}}" title="Ordenar por cantidad" (click)="orderProducts('Cantidad');">
+            <li class="item-filter {{serviceStore.ordertype}}" title="Ordenar por cantidad" (click)="orderProducts('Cantidad');">
                 Cantidad
-            </li>
-            <li class="item-filter {{ordertype}}" title="Mostrar todos" (click)="orderProducts('Todos');">
-                Todos
             </li>
         </ul>
         <label>
             Ordenados por:
-            <span class="{{ordertype}} {{order}}">
-                {{order}}
+            <span class="{{serviceStore.ordertype}} {{serviceStore.order}}">
+                {{serviceStore.order}}
                 <i class="large material-icons">sort</i>
             </span>
         </label>
     </div>
-    <article class="product" *ngFor="let item of productslist">
+    <article class="product" *ngFor="let item of serviceStore.productslist">
         <div class="fade">
             <button>
                 Agregar
