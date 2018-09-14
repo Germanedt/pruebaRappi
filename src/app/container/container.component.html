@@ -1,11 +1,38 @@
 <main>
     <div class="filters">
         <h3>{{titleList}}</h3>
+        <ul>
+            <li id="dispoibilidad" class="item-filter {{ordertype}}" title="Ordenar por dispoibilidad" (click)="orderProducts('Disponibilidad');">
+                Disponibilidad
+            </li>
+            <li class="item-filter {{ordertype}}" title="Ordenar por precio" (click)="orderProducts('Precio');">
+                Precio
+            </li>
+            <li class="item-filter {{ordertype}}" title="Ordenar por cantidad" (click)="orderProducts('Cantidad');">
+                Cantidad
+            </li>
+            <li class="item-filter {{ordertype}}" title="Mostrar todos" (click)="orderProducts('Todos');">
+                Todos
+            </li>
+        </ul>
+        <label>
+            Ordenados por:
+            <span class="{{ordertype}} {{order}}">
+                {{order}}
+                <i class="large material-icons">sort</i>
+            </span>
+        </label>
     </div>
     <article class="product" *ngFor="let item of productslist">
+        <div class="fade">
+            <button>
+                Agregar
+                <!--<i class="large material-icons">add_shopping_cart</i>-->
+            </button>
+        </div>
         <img src="assets/product.jpg" alt="{{item.name}}">
         <span class="name-product">{{item.name}}</span>
-        <strong class="price-product">{{item.price}}</strong>
-        <small class="quantity-produt">{{item.quantity}}</small>
+        <strong class="price-product">{{item.priceText}}</strong>
+        <small class="quantity-produt available-{{item.available}}">{{item.quantity}}</small>
     </article>
 </main>

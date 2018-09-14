@@ -1,7 +1,6 @@
 main{
     padding-left: 310px;
     padding-right: 10px;
-    font-family: Abel;
 }
 
 @media only screen and (max-width : 992px) {
@@ -10,17 +9,96 @@ main{
     }
 }
 .filters h3{
+    display: inline-block;
     font-size: 1.6em;
+    font-family: Abel;
+}
+.filters ul{
+    font-family: Abel;  
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    float: right;
+    margin-top: 25px;
+}
+.filters ul li{
+    color: black;
+    cursor: pointer;
+    margin-left: 6px;
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    box-shadow: 0.2px 0.2px 0.2px 0.05px #888888;
+}
+
+.filters label{
+    display: block;
+    font-size: 0.95em;
+}
+.filters label span{
+    padding: 2px 5px;
+    box-shadow: 0.2px 0.2px 0.2px 0.05px #888888;
+}
+.filters label span i{
+    font-size: 15px;
+    display: inline-block;
+}
+.filters label span.true i{
+    font-size: 15px;
+    transform: rotate(180deg);
+}
+.filters label span.true.Disponibilidad{
+    background: #38b649;
+    color: white;
+}
+.filters label span.false.Disponibilidad{
+    background: #ee6e73;
+    color: white;
+}
+.filters label span.Disponibilidad i{
+    display: none;
 }
 .product{
-    width: 250px;
+    width: 23%;
     height: 310px;
     overflow: hidden;
     box-shadow: 0.2px 0.2px 0.2px 0.05px #888888;
     padding: 5px;
     position: relative;
     display: inline-block;
-    margin: 6px;
+    margin: 8px;
+    font-family: Abel;
+}
+.product .fade{
+    display: none;
+}
+.product:hover .fade{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.product:hover .fade button{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 40px;
+    border: none;
+    background: #ee6e73;
+    font-family: Abel;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0.2px 0.2px 0.2px 0.05px #ee6e73;
 }
 .product img{
     width: 100%;
@@ -47,7 +125,12 @@ main{
     line-height: 20px;
     right: 8px;
     bottom: 10px;
-    background: #ee6e73;
     color: #fff;
     border-radius: 5px;
+}
+.product .quantity-produt.available-false{
+    background: #ee6e73;
+}
+.product .quantity-produt.available-true{
+    background: #38b649;
 }
