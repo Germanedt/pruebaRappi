@@ -109,9 +109,9 @@ export class StoreService {
     }
   }
 
-  listProductsByCategory(category) {
-    /*const dataCategory = this.categories.find( categoryFind => categoryFind.id === category);
-    this.titleList = 'Lista de productos categoría ' + dataCategory.name;*/
+  listProductsByCategory(category, name) {
+    this.titleList = name;
+
     this.loadProductList(this.products.filter( product => product.sublevel_id === category));
   }
 }

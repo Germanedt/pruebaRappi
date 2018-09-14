@@ -1,10 +1,22 @@
 .spaceTop{
     height: 64px;
 }
-.sidenav-icon{
+ul li.list-itemBar{
+    box-shadow: 0.2px 0.2px 0px 0.05px #888888;
+}
+ul li a:hover{
     color: #ee6e73 !important;
-    font-size: 1.5em;
 }
 ul li a{
     cursor: pointer;
+}
+ul li a i{
+    font-size: 1.3em;
+    color: #ee6e73 !important;
+}
+ul li a .sublevel{
+    font-size: 1.5em;
+}
+ul li a .endpoint{
+    font-size: 0.9em;
 }

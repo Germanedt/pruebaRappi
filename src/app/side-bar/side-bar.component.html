@@ -1,15 +1,28 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
     <li class="spaceTop"></li>
-    <li *ngFor="let category of serviceStore.categories">
-        <a (click)="listByCategory(category.id);">
-            <i class="material-icons sidenav-icon">add_box</i>{{category.name}}
+    <li *ngFor="let category of serviceStore.categories" class="list-itemBar">
+        <a (click)="listByCategory(category.id, category.name);">
+            <i class="material-icons sidenav-icon">label</i>{{category.name}}
         </a>
-        <!-- Dropdown Structure -->
         <ul *ngFor="let level of category.sublevels">
             <li>
-                <a (click)="listByCategory(level.id);">
-                    <i class="material-icons">radio_button_unchecked</i>four
+                <a (click)="listByCategory(level.id, category.name+' '+level.name);">
+                    <i class="material-icons level">label_outline</i>{{level.name}}
                 </a>
+                <ul *ngFor="let sublevel of level.sublevels">
+                    <li>
+                        <a (click)="listByCategory(sublevel.id, category.name+' '+level.name+' '+sublevel.name);">
+                            <i class="material-icons sublevel">navigate_next</i>{{sublevel.name}}
+                        </a>
+                        <ul *ngFor="let endpoint of sublevel.sublevels">
+                            <li>
+                                <a (click)="listByCategory(endpoint.id, category.name+' '+level.name+' '+sublevel.name+' '+endpoint.name);">
+                                    <i class="material-icons endpoint">radio_button_unchecked</i>{{endpoint.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </li>
