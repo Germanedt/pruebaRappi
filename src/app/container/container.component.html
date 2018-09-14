@@ -23,9 +23,9 @@
             </span>
         </label>
     </div>
-    <article class="product" *ngFor="let item of serviceStore.productslist">
+    <article class="product" *ngFor="let item of serviceStore.productslist" id="product_{{item.id}}">
         <div class="fade">
-            <button>
+            <button (click)="addToShoppingCart(item.id);">
                 Agregar
                 <!--<i class="large material-icons">add_shopping_cart</i>-->
             </button>
