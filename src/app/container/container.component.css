@@ -60,6 +60,10 @@ main{
 .filters label span.Disponibilidad i{
     display: none;
 }
+.product-container{
+    text-align: center;
+    margin-top: 15px;
+}
 .product{
     width: 250px;
     height: 310px;

@@ -114,4 +114,14 @@ export class StoreService {
 
     this.loadProductList(this.products.filter( product => product.sublevel_id === category));
   }
+
+  filterByAvailability(value: boolean){
+    let disponibilidad: string = 'disponibles';
+    if (!value) {
+      disponibilidad = 'no disponibles';
+    }
+    this.titleList = 'Productos ' + disponibilidad;
+
+    this.loadProductList(this.products.filter( product => product.available === value));
+  }
 }

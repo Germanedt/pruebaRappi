@@ -1,6 +1,17 @@
 .spaceTop{
     height: 64px;
 }
+ul li .title-section{
+    padding: 0 10px;
+    font-family: Abel;
+    font-size: 1.3em;
+    color: #ef7173;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+    color: #ef7173 !important;
+}
+
+
 ul li.list-itemBar{
     box-shadow: 0.2px 0.2px 0px 0.05px #888888;
 }

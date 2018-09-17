@@ -1,36 +1,60 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
-    <li class="spaceTop"></li>
-    <li *ngFor="let category of serviceStore.categories" class="list-itemBar">
-        <a (click)="listByCategory(category.id, category.name);">
-            <i class="material-icons sidenav-icon">label</i>{{category.name}}
-        </a>
-        <ul *ngFor="let level of category.sublevels">
+    <li>
+        <span class="title-section">Filtros</span>
+    </li>
+    <li style="padding: 0 12px;">
+        <div class="col s12">
+            <select class="browser-default">
+                <option value="" disabled selected>Por disponibilidad</option>
+                <option value="-1">Todos</option>
+                <option value="1">Disponibles</option>
+                <option value="0">No disponibles</option>
+            </select>
+        </div>
+        <div class="col s6" style="font-family: Abel;">
+            <label style="font-size: 1.1em;">Por precio</label>
+            <input type="number" class="" placeholder="Precio mínimo">
+            <input type="number" class="" placeholder="Precio Máximo">
+        </div>
+    </li>
+    <li>
+        <span class="title-section">Categorías</span>
+    </li>
+    <li class="no-padding list-itemBar" *ngFor="let category of serviceStore.categories">
+        <ul class="collapsible">
             <li>
-                <a (click)="listByCategory(level.id, category.name+' '+level.name);">
-                    <i class="material-icons level">label_outline</i>{{level.name}}
-                </a>
-                <ul *ngFor="let sublevel of level.sublevels">
-                    <li>
-                        <a (click)="listByCategory(sublevel.id, category.name+' '+level.name+' '+sublevel.name);">
-                            <i class="material-icons sublevel">navigate_next</i>{{sublevel.name}}
-                        </a>
-                        <ul *ngFor="let endpoint of sublevel.sublevels">
-                            <li>
-                                <a (click)="listByCategory(endpoint.id, category.name+' '+level.name+' '+sublevel.name+' '+endpoint.name);">
-                                    <i class="material-icons endpoint">radio_button_unchecked</i>{{endpoint.name}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <a class="collapsible-header">{{category.name}}<i class="material-icons">label</i></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible">
+                        <li *ngFor="let level of category.sublevels">
+                            <a class="collapsible-header" (click)="listByCategory(level.id, category.name + ' ' + level.name);">
+                                {{level.name}}
+                                <i class="material-icons">label_outline</i>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul class="collapsible">
+                                    <li *ngFor="let sublevel of level.sublevels">
+                                        <a class="collapsible-header" (click)="listByCategory(sublevel.id, category.name + ' ' + level.name + ' ' + sublevel.name);">
+                                            {{sublevel.name}}
+                                            <i class="material-icons">navigate_next</i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul class="collapsible">
+                                                <li *ngFor="let endpoint of sublevel.sublevels">
+                                                    <a class="collapsible-header" (click)="listByCategory(endpoint.id, category.name + ' ' + level.name + ' ' + sublevel.name + ' ' +endpoint.name);">
+                                                        {{endpoint.name}}
+                                                        <i class="material-icons endpoint">radio_button_unchecked</i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </li>
 </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
-</script>

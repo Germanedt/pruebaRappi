@@ -23,16 +23,18 @@
             </span>
         </label>
     </div>
-    <article class="product" *ngFor="let item of serviceStore.productslist" id="product_{{item.id}}">
-        <div class="fade">
-            <button (click)="addToShoppingCart(item.id);">
-                Agregar
-                <!--<i class="large material-icons">add_shopping_cart</i>-->
-            </button>
-        </div>
-        <img src="assets/product.jpg" alt="{{item.name}}">
-        <span class="name-product">{{item.name}}</span>
-        <strong class="price-product">{{item.priceText}}</strong>
-        <small class="quantity-produt available-{{item.available}}">{{item.quantity}}</small>
-    </article>
+    <div class="product-container">
+        <article class="product" *ngFor="let item of serviceStore.productslist" id="product_{{item.id}}">
+            <div class="fade">
+                <button (click)="addToShoppingCart(item.id);">
+                    Agregar
+                    <!--<i class="large material-icons">add_shopping_cart</i>-->
+                </button>
+            </div>
+            <img src="assets/product.jpg" alt="{{item.name}}">
+            <span class="name-product">{{item.name}}</span>
+            <strong class="price-product">{{item.priceText}}</strong>
+            <small class="quantity-produt available-{{item.available}}">{{item.quantity}}</small>
+        </article>
+    </div>
 </main>

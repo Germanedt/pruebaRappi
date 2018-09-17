@@ -13,7 +13,11 @@ export class SideBarComponent implements OnInit {
       this.serviceStore.categories = data.json()['categories'];
     });
   }
+
   listByCategory(category: number, name: string) {
     this.serviceStore.listProductsByCategory(category, name);
+  }
+
+  filterByAvailability(){
   }
 }
