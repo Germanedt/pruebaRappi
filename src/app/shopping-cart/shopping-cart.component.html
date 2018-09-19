@@ -1,0 +1,23 @@
+<main>
+    <table class="centered highlight responsive-table">
+        <thead>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of serviceStore.shoppingCart">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <input type="number" step="1" min="1" class="browser-default" value="{{item.quantity}}">
+                </td>
+                <td>12000</td>
+                <td>
+                    <i class="material-icons">close</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>

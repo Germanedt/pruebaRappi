@@ -2,12 +2,6 @@ main{
     padding-left: 310px;
     padding-right: 10px;
 }
-
-@media only screen and (max-width : 992px) {
-    main{
-        padding-left: 10;
-    }
-}
 .filters h3{
     display: inline-block;
     font-size: 1.6em;
@@ -137,4 +131,19 @@ main{
 }
 .product .quantity-produt.available-true{
     background: #38b649;
+}
+
+@media only screen and (max-width : 992px) {
+    main{
+        padding-left: 0px;
+    }
+    .filters h3{
+        display: block;
+        font-size: 1.6em;
+        font-family: Abel;
+        text-align: center
+    }
+    .filters label{
+        padding-left: 10px;
+    }
 }

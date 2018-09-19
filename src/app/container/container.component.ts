@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../services/store.service';
-import { log } from 'util';
+
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
@@ -13,8 +13,19 @@ export class ContainerComponent implements OnInit {
   ngOnInit() {
     this.serviceStore.listAllProducts();
   }
-
+  /**
+   * Función encargada de llamar el servicio de ordenado de productos por tipo
+   * @param order tipo de orden que se desea aplicar
+   */
   orderProducts(order: string) {
     this.serviceStore.orderProducts(order);
+  }
+
+  addToShoppingCart(product_id: string) {
+    this.serviceStore.addProductToShoppingCart( product_id );
+  }
+
+  removeToShoppingCart(product_id: string) {
+    this.serviceStore.removeProductToShoppingCart( product_id );
   }
 }
