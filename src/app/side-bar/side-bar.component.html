@@ -4,7 +4,7 @@
     </li>
     <li style="padding: 0 12px;">
         <div class="col s12">
-            <select class="browser-default">
+            <select class="browser-default" (blur)="filterByAvailability($event);">
                 <option value="" disabled selected>Por disponibilidad</option>
                 <option value="-1">Todos</option>
                 <option value="1">Disponibles</option>
@@ -13,12 +13,12 @@
         </div>
         <div style="font-family: Abel;">
             <label style="font-size: 1.1em; display: block; color: #ef7173;">Por precio</label>
-            <input type="number" class="" placeholder="Precio mínimo" min="0" style="display: inline-block; width: 45%; margin: 0 6px 0 0;">
-            <input type="number" class="" placeholder="Precio Máximo" min="0" style="display: inline-block; width: 45%; margin: 0 0 0 6px;">
+            <input type="number" placeholder="Precio mínimo" min="0" style="display: inline-block; width: 45%; margin: 0 6px 0 0;" (blur)="minPriceFilter($event);">
+            <input type="number" placeholder="Precio Máximo" min="0" style="display: inline-block; width: 45%; margin: 0 0 0 6px;" (blur)="maxPriceFilter($event);">
         </div>
         <div style="font-family: Abel;">
             <label style="font-size: 1.1em; display: block; color: #ef7173;">Por Cantidad</label>
-            <input type="number" class="" min="0" placeholder="Cantidad máxima">
+            <input type="number" class="" min="0" placeholder="Cantidad máxima" (blur)="filterMaxQuantity($event);">
         </div>
     </li>
     <li>

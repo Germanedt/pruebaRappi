@@ -24,8 +24,4 @@ export class ContainerComponent implements OnInit {
   addToShoppingCart(product_id: string) {
     this.serviceStore.addProductToShoppingCart( product_id );
   }
-
-  removeToShoppingCart(product_id: string) {
-    this.serviceStore.removeProductToShoppingCart( product_id );
-  }
 }

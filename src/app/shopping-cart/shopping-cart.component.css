@@ -23,9 +23,25 @@ input{
     height: 40px;
     text-align: center;
 }
+.sumary{
+    width: 25%;
+    float: right;
+    margin-right: 15%;
+}
+.sumary .btn-pay{
+    width: 100%;
+    background: #ee6e73;
+    font-family: Abel;
+    font-size: 1.2em;
+}
 @media only screen and (max-width : 992px) {
     main{
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .sumary{
+        width: 100%;
+        margin-right: 0;
+        float: none;
     }
 }

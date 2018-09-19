@@ -6,6 +6,9 @@ import { StoreService } from '../services/store.service';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+
+  minValue = 0;
+  maxValue = 0;
   constructor(public serviceStore: StoreService) {}
 
   ngOnInit() {
@@ -18,6 +21,35 @@ export class SideBarComponent implements OnInit {
     this.serviceStore.listProductsByCategory(category, name);
   }
 
-  filterByAvailability(){
+  filterByAvailability(event: any) {
+    if (event.target.value === '-1') {
+      this.serviceStore.listAllProducts();
+    } else {
+      this.serviceStore.filterByAvailability(event.target.value);
+    }
+  }
+
+  minPriceFilter(event: any) {
+    if (+event.target.value !== 0) {
+      this.minValue = event.target.value;
+      if (this.maxValue === 0) {
+        this.maxValue = this.serviceStore.maxValueProduct;
+      }
+      this.serviceStore.filterByPrice(this.minValue, this.maxValue);
+    }
+  }
+
+  maxPriceFilter(event: any) {
+    if (+event.target.value !== 0) {
+      this.maxValue = event.target.value;
+
+      this.serviceStore.filterByPrice(this.minValue, this.maxValue);
+    }
+  }
+
+  filterMaxQuantity(event: any) {
+    if (+event.target.value !== 0) {
+      this.serviceStore.filterByQuantity(event.target.value);
+    }
   }
 }

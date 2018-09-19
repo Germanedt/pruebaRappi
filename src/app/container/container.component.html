@@ -26,7 +26,7 @@
     <div class="product-container">
         <article class="product" *ngFor="let item of serviceStore.productslist" id="product_{{item.id}}">
             <div class="fade">
-                <button (click)="addToShoppingCart(item.id);">
+                <button data-target="modal1" class="modal-trigger" (click)="addToShoppingCart(item.id);">
                     Agregar
                     <!--<i class="material-icons">add_shopping_cart</i>-->
                 </button>
@@ -38,3 +38,12 @@
         </article>
     </div>
 </main>
+<div id="modal1" class="modal" style="width: 350px; text-align: center;">
+    <div class="modal-content">
+        <span>Producto agregado al carito.</span>
+        <br>
+        <br>
+        <a class="modal-close waves-effect btn" style="display: block; margin-bottom: 5px; color: white; background: #ee6e73;">Segir aquí</a> 
+        <a href="/shopping" class="modal-close waves-effect btn" style="display: block; color: white; background: #ee6e73;">Ir al carrito</a>
+    </div>
+</div>

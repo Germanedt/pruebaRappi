@@ -1,4 +1,6 @@
 <main>
+    <h4>Lista de compras.</h4>
+    <br>
     <table class="centered highlight responsive-table">
         <thead>
             <th>Producto</th>
@@ -9,15 +11,38 @@
         <tbody>
             <tr *ngFor="let item of serviceStore.shoppingCart">
                 <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
+                <td>{{item.price | currency}}</td>
                 <td>
-                    <input type="number" step="1" min="1" class="browser-default" value="{{item.quantity}}">
+                    <input type="number" step="1" min="1" class="browser-default" value="{{item.quantity}}" (blur)="updateToShoppingCart(item.id, $event);">
                 </td>
-                <td>12000</td>
+                <td>{{item.total | currency}}</td>
                 <td>
-                    <i class="material-icons">close</i>
+                    <i class="material-icons" (click)="removeToShoppingCart(item.id);">close</i>
                 </td>
             </tr>
         </tbody>
     </table>
+    <br>
+    <table class="sumary">
+        <tr>
+            <td>Total compra</td>
+            <td>{{serviceStore.totalPurchase | currency}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button data-target="modal1" class="waves-effect waves-light btn btn-pay modal-trigger" (click)="purchaseProducts();">Comprar</button>
+            </td>
+        </tr>
+    </table>
 </main>
+<div id="modal1" class="modal" style="width: 350px; text-align: center;">
+    <div class="modal-content">
+        <h4>Compra realizada</h4>
+        <p>SU compra ha sido registrada exitosamente.</p>
+    </div>
+    <div class="modal-footer" style="text-align:center;">
+        <a class="modal-close waves-effect btn" style="background: #ee6e73; width: 90%;">Aceptar</a>
+        <br>
+        <br>
+    </div>
+</div>
